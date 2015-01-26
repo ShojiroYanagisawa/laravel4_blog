@@ -11,5 +11,7 @@
 |
 */
 
-Route::get('/',           'PostsController@index');
-Route::get('/posts/{id}', 'PostsController@show');
+Route::get( '/',           'PostsController@index');
+Route::get( '/posts/{id}', 'PostsController@show');
+Route::get( '/create',     'PostsController@create');
+Route::post('/create',     ['before' => 'csrf', 'uses' => 'PostsController@store']);

@@ -20,4 +20,24 @@ class PostsController extends BaseController
     $post = $this->post->findOrFail($id);
     return View::make('posts.show', ['post' => $post]);
   }
+
+  public function create()
+  {
+    return View::make('posts.create');
+  }
+
+  public function store()
+  {
+    $attrs = Input::only(['title', 'body']);
+
+    if ($this->post->validate($attrs)) {
+      $this->post->create($attrs);
+      // TODO save messsage to flash
+      return Redirect::action('PostsController@index');
+    } else {
+      return Redirect::action('PostsController@create')
+              ->withErrors($this->post->errors())
+              ->withInput();
+    }
+  }
 }

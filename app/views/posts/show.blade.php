@@ -7,6 +7,6 @@
 
 <hr>
 
-<a href="{{ action('PostsController@index') }}" class="btn btn-default">戻る</a>
+<a href="{{ action('PostsController@index') }}" class="btn btn-default">Back</a>
 
 @stop
