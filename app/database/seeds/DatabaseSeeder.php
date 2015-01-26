@@ -10,8 +10,9 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		Eloquent::unguard();
-
-		// $this->call('UserTableSeeder');
+		DB::table('posts')->truncate();
+		Post::create(['title' => 'First Laravel', 'body' => 'Hello, Laravel']);
+		Post::create(['title' => 'Second Laravel', 'body' => 'Hi, Laravel']);
 	}
 
 }
