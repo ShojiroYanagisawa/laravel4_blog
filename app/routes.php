@@ -11,7 +11,5 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/',           'PostsController@index');
+Route::get('/posts/{id}', 'PostsController@show');
