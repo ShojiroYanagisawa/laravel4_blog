@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'pgsql',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,10 +65,10 @@ return array(
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'database' => 'forge',
-			'username' => 'forge',
-			'password' => '',
+			'host'     => $url["host"],
+			'database' => substr($url["path"], 1),
+			'username' => $url["user"],
+			'password' => $url["pass"],
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
