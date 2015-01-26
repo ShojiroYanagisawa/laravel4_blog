@@ -33,11 +33,12 @@ class PostsController extends BaseController
     if ($this->post->validate($attrs)) {
       $this->post->create($attrs);
       // TODO save messsage to flash
-      return Redirect::action('PostsController@index');
-    } else {
-      return Redirect::action('PostsController@create')
-              ->withErrors($this->post->errors())
-              ->withInput();
+      return Redirect::action('PostsController@index')
+              ->with('message', 'Post created successfully.');
     }
+
+    return Redirect::action('PostsController@create')
+            ->withErrors($this->post->errors())
+            ->withInput();
   }
 }
