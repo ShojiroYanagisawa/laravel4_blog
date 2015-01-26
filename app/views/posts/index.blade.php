@@ -9,6 +9,7 @@
     <tr>
       <th>Title</th>
       <th style="width: 60px;"></th>
+      <th style="width: 60px;"></th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,11 @@
       <tr>
         <td><a href="{{ action('PostsController@show', $post->id) }}">{{{ $post->title }}}</a></td>
         <td><a href="{{ action('PostsController@edit', $post->id) }}" class="btn btn-primary">Edit</a></td>
+        <td>
+          {{ Form::open(array('method' => 'DELETE', 'route' => array('posts.destroy', $post->id))) }}
+            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+          {{ Form::close() }}
+        </td>
       </tr>
     @endforeach
   </tbody>

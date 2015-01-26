@@ -64,4 +64,12 @@ class PostsController extends BaseController
             ->withErrors($this->post->errors())
             ->withInput();
   }
+
+  public function destroy($id)
+  {
+    $this->post->findOrFail($id)->delete();
+
+    return Redirect::action('PostsController@index')
+            ->with('message', 'Post deleted successfully.');
+  }
 }
