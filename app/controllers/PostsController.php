@@ -18,7 +18,8 @@ class PostsController extends BaseController
   public function show($id)
   {
     $post = $this->post->findOrFail($id);
-    return View::make('posts.show', ['post' => $post]);
+    $comments = $post->comments;
+    return View::make('posts.show', ['post' => $post, 'comments' => $comments]);
   }
 
   public function create()

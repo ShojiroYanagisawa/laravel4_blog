@@ -1,19 +1,18 @@
 <?php
 
-class Post extends Eloquent
+class Comment extends Eloquent
 {
-  protected $fillable = ['title', 'body'];
+  protected $fillable = ['body'];
   protected $errors;
 
-  public function comments()
+  public function post()
   {
-    return $this->hasMany('Comment');
+    return $this->belongsTo('Post');
   }
 
   public function validate(array $params)
   {
     $validator = Validator::make($params, [
-      'title' => 'required',
       'body'  => 'required',
     ]);
 
