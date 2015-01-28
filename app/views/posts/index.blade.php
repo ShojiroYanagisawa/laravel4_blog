@@ -27,6 +27,8 @@
   </tbody>
 </table>
 
+{{ $posts->links() }}
+
 <hr />
 
 <a href="{{ action('PostsController@create') }}" class="btn btn-primary">New Post</a>
