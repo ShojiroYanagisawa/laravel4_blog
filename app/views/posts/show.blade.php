@@ -26,6 +26,16 @@
 
 <h2>New Comment</h2>
 
+@if ($errors->any())
+<div class="alert alert-danger">
+  <ul>
+    @foreach ($errors->all() as $error)
+      <li>{{{ $error }}}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
 {{ Form::open(array('method' => 'POST', 'route' => array('posts.comments.store', $post->id))) }}
     <div class="form-group">
     {{ Form::label('body', 'Body') }}
