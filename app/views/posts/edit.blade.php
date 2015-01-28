@@ -4,15 +4,7 @@
 
 <h1>Edit Post</h1>
 
-@if ($errors->any())
-<div class="alert alert-danger">
-  <ul>
-    @foreach ($errors->all() as $error)
-      <li>{{{ $error }}}</li>
-    @endforeach
-  </ul>
-</div>
-@endif
+@include('layouts.errors')
 
 {{ Form::model($post, array('method' => 'PATCH', 'route' => array('posts.update', $post->id))) }}
   <div class="form-group">
